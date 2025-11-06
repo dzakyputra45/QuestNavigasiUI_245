@@ -10,6 +10,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appnavigation.view.FormIsian
+import com.example.appnavigation.view.TampilData
 
 enum class Navigasi {
     Formulir,
@@ -43,6 +45,8 @@ fun DataApp(
         }
     }
 }
+
+fun NavController.Companion.navigate(name: String) {}
 
 private fun cancelAndBackToFormulir(
     navController: NavHostController
