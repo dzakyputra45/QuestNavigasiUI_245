@@ -66,6 +66,11 @@ fun FormIsian(
                 label = {Text(text = "Alamat")},
                 onValueChange = {},
             )
+            Spacer(modifier = Modifier.height(height = 30.dp))
+            Button(modifier = Modifier.fillMaxWidth(fraction = 1f),
+                onClick = OnSubmitBtnClick ) {
+                Text(stringResource(id = R.string.submit))
+            }
         }
     }
 }
