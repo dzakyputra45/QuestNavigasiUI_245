@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 enum class Navigasi {
@@ -25,22 +26,26 @@ fun DataApp(
             navController = navController,
             startDestination = Navigasi.Formulir.name,
 
-            modifier = Modifier.padding(isiRuang)){
-            composable(route = Navigasi.Formulir.name){
-                FormIsian (
+            modifier = Modifier.padding(isiRuang)) {
+            composable(route = Navigasi.Formulir.name) {
+                FormIsian(
                     //PilihanJK = JenisK.map { id -> konteks.resources.getstring(id) },
                     OnSubmitBtnClick = {
                         NavController.navigate(Navigasi.Detail.name)
                     }
                 )
             }
-            composable(route = Navigasi.Detail.name){
+            composable(route = Navigasi.Detail.name) {
                 TampilData(
-                    onBackBtnClick = {cancelAndBackToFormulir(navController)}
+                    onBackBtnClick = { cancelAndBackToFormulir(navController) }
                 )
             }
         }
-        )
     }
 }
 
+private fun cancelAndBackToFormulir(
+    navController: NavHostController
+){
+    navController.popBackStack(Navigasi.Formulir.name, inclusive = false)
+}
