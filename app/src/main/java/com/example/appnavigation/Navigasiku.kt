@@ -5,7 +5,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,8 +19,9 @@ enum class Navigasi {
 
 @Composable
 fun DataApp(
-    navController : NavHostController = rememberNavController(),
-    modifier: Modifier
+    navController: NavHostController = rememberNavController(),
+    modifier: Modifier,
+    name: String
 ){
     Scaffold { isiRuang->
         NavHost(
@@ -33,7 +33,7 @@ fun DataApp(
                 FormIsian(
                     //PilihanJK = JenisK.map { id -> konteks.resources.getstring(id) },
                     OnSubmitBtnClick = {
-                        NavController.navigate(Navigasi.Detail.name)
+                        navController.navigate(Navigasi.Detail.name)
                     }
                 )
             }
@@ -45,8 +45,6 @@ fun DataApp(
         }
     }
 }
-
-fun NavController.Companion.navigate(name: String) {}
 
 private fun cancelAndBackToFormulir(
     navController: NavHostController
