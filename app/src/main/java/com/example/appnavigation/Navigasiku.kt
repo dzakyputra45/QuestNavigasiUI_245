@@ -15,7 +15,6 @@ enum class Navigasi {
     Detail
 }
 
-
 @Composable
 fun DataApp(
     navController : NavHostController = rememberNavController(),
@@ -35,7 +34,10 @@ fun DataApp(
                     }
                 )
             }
-
+            composable(route = Navigasi.Detail.name){
+                TampilData(
+                    onBackBtnClick = {cancelAndBackToFormulir(navController)}
+                )
             }
         }
         )
