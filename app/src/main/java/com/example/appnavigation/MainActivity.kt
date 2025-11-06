@@ -16,15 +16,13 @@ import com.example.appnavigation.ui.theme.AppNavigationTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             AppNavigationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
+                DataApp(
+                    modifier = Modifier,
+                    name = "Dzaky"
+                )
             }
         }
     }
